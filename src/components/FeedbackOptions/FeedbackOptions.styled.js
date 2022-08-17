@@ -9,14 +9,16 @@ export const FeedbackOptionsList = styled.ul`
 `;
 
 export const FeedbackOptionsButton = styled.button`
-    font-size: 15px;
-    color: #ffffff !important;
-    padding: 8px 15px;
-    border-radius: 5px;
-    border: 2px hidden #f3c846;
-    background: #525ef6;
+  font-size: 15px;
+  color: #ffffff !important;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 2px hidden #f3c846;
+  background: #525ef6;
 
   &:hover {
     color: #ffffff !important;
-    background: #272c7b; }
+    background: #272c7b;
+    cursor: pointer;
+  }
 `;

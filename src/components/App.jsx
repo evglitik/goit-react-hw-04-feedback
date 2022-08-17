@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Box } from '../Box'
+import { Box } from '../Box';
 import { GlobalStyle } from './GlobalStyle';
 
 export class App extends Component {
@@ -12,10 +12,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = (name) => {
+  onLeaveFeedback = name => {
     this.setState(prevState => ({
-      [name]: prevState[name] +=1
-    }))
+      [name]: (prevState[name] += 1),
+    }));
   };
 
   countTotalFeedback = () => {
@@ -33,14 +33,10 @@ export class App extends Component {
     const total = this.countTotalFeedback();
 
     return (
-      <Box
-      p={3}
-
-      as="main"
-    >
+      <Box p={3} as="main">
         <Section title="Please leave feedback" />
         <FeedbackOptions
-          arreyValue={[{good}, {neutral}, {bad}]}
+          arreyValue={[{ good }, { neutral }, { bad }]}
           onLeaveFeedback={this.onLeaveFeedback}
         />
         <Statistics
@@ -50,9 +46,9 @@ export class App extends Component {
           total={total}
           positivePercentage={this.countPositiveFeedbackPercentage()}
         />
-        <GlobalStyle/>
+        <GlobalStyle />
       </Box>
-      
     );
   }
 }
+
