@@ -11,9 +11,7 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <StatisticTitle>Statistics </StatisticTitle>
-      {total ? (
-        <>
+          <StatisticTitle>Statistics </StatisticTitle>
           <p>Good: {good}</p>
           <p>Neutral: {neutral}</p>
           <p>Bag: {bad}</p>
@@ -22,12 +20,7 @@ export const Statistics = ({
             Positive feedbeack: {positivePercentage ? positivePercentage : 0}%
           </p>
         </>
-      ) : (
-        <>
-          <p>No feedbeack given</p>
-        </>
-      )}
-    </>
+    
   );
 };
 

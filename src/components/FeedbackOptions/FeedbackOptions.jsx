@@ -8,14 +8,13 @@ export const FeedbackOptions = ({ arreyValue, onLeaveFeedback }) => {
   return (
     <FeedbackOptionsList>
       {arreyValue.map((el, inx) => {
-        const value = Object.keys(el)[0];
         return (
           <li key={inx}>
             <FeedbackOptionsButton
               type="button"
-              onClick={() => onLeaveFeedback(value)}
+              onClick={() => onLeaveFeedback(el)}
             >
-              {value}
+              {el}
             </FeedbackOptionsButton>
           </li>
         );
@@ -25,16 +24,6 @@ export const FeedbackOptions = ({ arreyValue, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  arreyValue: PropTypes.arrayOf(
-    PropTypes.shape({
-      good: PropTypes.number,
-    }).isRequired,
-    PropTypes.shape({
-      neutral: PropTypes.number,
-    }).isRequired,
-    PropTypes.shape({
-      bad: PropTypes.number,
-    }).isRequired,
-  ).isRequired,
+  arreyValue: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func,
 };

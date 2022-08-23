@@ -4,6 +4,7 @@ import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Box } from '../Box';
 import { GlobalStyle } from './GlobalStyle';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -31,24 +32,29 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
+    const arrValueState = Object.keys(this.state);
 
     return (
       <Box p={3} as="main">
-        <Section title="Please leave feedback" />
-        <FeedbackOptions
-          arreyValue={[{ good }, { neutral }, { bad }]}
-          onLeaveFeedback={this.onLeaveFeedback}
-        />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={total}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            arreyValue={arrValueState}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification message="No feedbeack given" />
+          )}
+        </Section>
         <GlobalStyle />
       </Box>
     );
   }
 }
-
